@@ -1,0 +1,6 @@
+api key geolocation
+AIzaSyA73weVTdMOn03PNnFMhdP1bjWdiYVhQL8
+
+
+    map.setZoom(18);
+    map.setCenter({lat:latitud, lng:longitud});

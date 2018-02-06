@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Gelocation</title>
-	<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Gelocation</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	<script src="assets/js/index.js"></script>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <button id="encuentrame" class="btn btn-warning">Encuéntrame</button>
+      </div>
+
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <span>Origen</span>
+        <br>
+        <input type="text" name="" placeholder="Introduce una ubicación">
+      </div>
+
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <span>Destino</span>
+        <br>
+        <input type="text" name="" placeholder="Introduce una ubicación">
+      </div>
+
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <button class="btn btn-warning">Ruta</button>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div id="map">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA73weVTdMOn03PNnFMhdP1bjWdiYVhQL8&callback=initMap">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/index.js"></script>
 </body>
 </html>
