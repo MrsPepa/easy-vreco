@@ -1,31 +1,56 @@
 body {
   text-align: center;
   box-sizing: border-box;
+  background-color: teal;
+  color: #fff;
 }
-#encuentrame {
-  margin-left: 6em;
+/*cambiando color de placeholder*/
+::-webkit-input-placeholder {
+    /* Google Chrome y Safari */
+    color: #fff!important;
+}
+:-moz-placeholder {
+    /* Firefox anterior a 19 */
+    color: #fff!important;
+}
+::-moz-placeholder {
+    /* Firefox 19 y superior */
+    color: #fff!important;
+}
+:-ms-input-placeholder {
+    /* Internet Explorer 10 y superior */
+    color: #fff!important;
+}
+#encuentrame,
+#trazar-ruta {
   margin-top: 2em;
   font-weight: bolder;
+  color: teal;
+  background-color: #fff;
+  border: 2px solid teal;
 }
 
 .form-group {
   text-align: justify;
   margin-top: 0.8em;
 }
+.form-control {
+  background-color: teal;
+  border: 2px solid #fff;
+  color: #fff;
+}
 .form-control:focus {
   box-shadow: none;
   outline: 0;
-  border: 1px solid #CECECE;
+  border: 2px solid #fff;
+}
+#destino,
+#origen {
+  background-color: #fff;
+  color: teal;
+  border: none;
 }
 
-#trazar-ruta {
-  font-weight: bolder;
-  margin-top: 2em;
-  margin-left: 3em;
-}
-hr {
-  margin: 3px 0 3px 0;
-}
 .mapa {
   padding: 0;
 }
@@ -36,7 +61,11 @@ hr {
 
 @media (max-width: 970px) {
   #encuentrame,
-  #ruta {
+  #trazar-ruta {
     margin-left: 0;
   }
+  #trazar-ruta {
+    margin-bottom: 4em;
+  }
 }
+

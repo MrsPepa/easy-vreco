@@ -1,17 +1,20 @@
 function initMap() {
   var osaka = {lat: 34.6937400, lng: 135.5021800};
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 6,
+    zoom: 7,
     center: osaka,
     mapTypeControl: false,
     zoomControl: false,
-    streetViewControl: false
+    streetViewControl: false,
+    mapTypeId: 'roadmap'
   });
-  var infowindow = new google.maps.InfoWindow();
   var marker = new google.maps.Marker({
     position: osaka,
-    map: map
+    map: map,
+    animation: google.maps.Animation.DROP,
+    draggable: true
   });
+
   function buscar() {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(funcionExito, funcionError);
@@ -62,7 +65,6 @@ function initMap() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
   };
   document.getElementById("trazar-ruta").addEventListener("click", trazarRuta);
-
 };
 
 
