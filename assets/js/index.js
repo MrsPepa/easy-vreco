@@ -73,7 +73,7 @@ function initMap() {
         directionsDisplay.setDirections(response);
         var star = response.routes[0].legs[0].start_location;
         var end = response.routes[0].legs[0].end_location;
-        function makeMark(ev){
+        function makeMark(ev) {
           new mapIcons.Marker({
             position: ev,
             animation: google.maps.Animation.DROP,
