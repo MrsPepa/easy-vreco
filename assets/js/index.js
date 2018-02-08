@@ -8,11 +8,19 @@ function initMap() {
     streetViewControl: false,
     mapTypeId: 'roadmap'
   });
-  var marker = new google.maps.Marker({
+  var marker = new mapIcons.Marker({
     position: osaka,
     map: map,
     animation: google.maps.Animation.DROP,
-    draggable: true
+    draggable: true,
+    icon: {
+      path: mapIcons.shapes.MAP_PIN,
+      fillColor: 'teal',
+      fillOpacity: 1,
+      strokeColor: '',
+      strokeWeight: 0
+    },
+    map_icon_label: '<span class="map-icon map-icon-bicycle-store"></span>'
   });
 
   function buscar() {
@@ -27,10 +35,18 @@ function initMap() {
     latitud = posicion.coords.latitude;
     longitud = posicion.coords.longitude;
 
-    var miUbicacion = new google.maps.Marker({
+    var miUbicacion = new mapIcons.Marker({
       position: {lat:latitud, lng:longitud},
       animation: google.maps.Animation.DROP,
-      map: map
+      map: map,
+      icon: {
+        path: mapIcons.shapes.MAP_PIN,
+        fillColor: 'teal',
+        fillOpacity: 1,
+        strokeColor: '',
+        strokeWeight: 0
+      },
+      map_icon_label: '<span class="map-icon map-icon-bicycle-store"></span>'
     });
     map.setZoom(17);
     map.setCenter({lat:latitud, lng:longitud});
@@ -55,12 +71,33 @@ function initMap() {
     }, function(response, status) {
       if(status === 'OK') {
         directionsDisplay.setDirections(response);
+        var star = response.routes[0].legs[0].start_location;
+        var end = response.routes[0].legs[0].end_location;
+        function makeMark(ev){
+          new mapIcons.Marker({
+            position: ev,
+            animation: google.maps.Animation.DROP,
+            map: map,
+            icon: {
+              path: mapIcons.shapes.MAP_PIN,
+              fillColor: 'teal',
+              fillOpacity: 1,
+              strokeColor: '',
+              strokeWeight: 0
+            },
+            map_icon_label: '<span class="map-icon map-icon-bicycle-store"></span>'
+          });
+        }
+        makeMark(star);
+        makeMark(end);
+        console.log(star);
       } else {
         window.alert("No encontramos una ruta.");
       }
     });
   }
   directionsDisplay.setMap(map);
+  directionsDisplay.setOptions({ suppressMarkers: true });
   var trazarRuta = function() {
     calculateAndDisplayRoute(directionsService, directionsDisplay);
   };
